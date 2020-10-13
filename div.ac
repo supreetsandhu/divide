@@ -1,0 +1,26 @@
+#Supreet Sandhu
+#div.ac
+#This program takes in a positive number and a divisor. It ouputs the diviended and the remainder.
+
+
+	lli r2 0 #user enter number
+      lli r3 0 #the divsor
+      lli r4 0 #count of divider
+
+      in r2 
+      bgz r2 &next  #check to see is number is positive
+     .halt
+
+ next: in r3
+	bgz r3 &loop  #check to see if the number is positive
+      .halt
+
+ loop: sub r2 r2 r3    #subtracts the user number by divsor
+       addi r4 r4 1    #updates the count of number of division
+       sub r5 r2 r3    #r5 holds the temp value of the remainder
+       bez r5 &loop    #if the remainder is >=0 then countine loop
+       bgz r5 &loop
+ 
+ out r4   #output the answer and remainder
+ out r2
+ .halt
